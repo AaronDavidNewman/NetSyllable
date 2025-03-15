@@ -37,96 +37,25 @@ Use this when you want to do fun things with natural language, like rhyming,
 detecting reading ease, etc.
 
 ## Install
-
-This package is [ESM only][esm].
-In Node.js (version 14.14+, 16.0+), install with [npm][]:
-
-```sh
-npm install syllable
-```
-
-In Deno with [`esm.sh`][esmsh]:
-
-```js
-import {syllable} from 'https://esm.sh/syllable@5'
-```
-
-In browsers with [`esm.sh`][esmsh]:
-
-```html
-<script type="module">
-  import {syllable} from 'https://esm.sh/syllable@5?bundle'
-</script>
-```
+I have not created any nuget or npm packages.
 
 ## Use
 
-```js
-import {syllable} from 'syllable'
-
-syllable('syllable') // 3
-syllable('unicorn') // 3
-syllable('hi') // 1
-syllable('hihi') // 2
-syllable('mmmmmmmmmmmmmmmm') // 1
-syllable('wine') // 1
-syllable('bottle') // 2
-syllable('wine-bottle') // 3
-syllable('Åland') // 2
+```c#
+        int wordCount = 0;
+        int syllableCount = 0;
+        string demo = "brittle wine communion";
+        NetSyllable.SyllableCounter.Syllable("brittle wine communion", ref syllableCount, ref wordCount);
+        Console.WriteLine($"{demo}: {syllableCount} syllables and {wordCount} words");
+        // 3 words, 6 syllables
 ```
-
-## API
-
-This package exports the identifier `syllable`.
-There is no default export.
-
-### `syllable(value)`
-
-Get the number of syllables in `value`.
-
-###### `value`
-
-Value to check (`string`, required).
-
-##### Returns
-
-Syllables in `value` (`number`).
-
-## CLI
-
-```txt
-Usage: syllable [options] <words...>
-
-Count syllables in English words
-
-Options:
-
-  -h, --help           output usage information
-  -v, --version        output version number
-
-Usage:
-
-# output syllables
-$ syllable syllable unicorn
-# 6
-
-# output syllables from stdin
-$ echo "syllable unicorn banana" | syllable
-# 9
-```
-
-## Types
-
-This package is fully typed with [TypeScript][].
-It exports no additional types.
 
 ## Compatibility
-
-This package is at least compatible with all maintained versions of Node.js.
-As of now, that is Node.js 14.14+ and 16.0+.
-It also works in Deno and modern browsers.
+Relesed as a console app under .NET Core LTS 8.0, but will probably work with anything.
 
 ## Related
+I copied this from the original.  My motiviation was to compute the flesh-kincaid index from
+LLM-generated text.
 
 *   [`automated-readability`](https://github.com/words/automated-readability)
     — formula to detect ease of reading according to the Automated Readability
